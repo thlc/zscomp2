@@ -75,13 +75,18 @@ public class ZSActivity extends AppCompatActivity {
 
         do {
             sub = Math.abs(speed - this.shutterSpeeds[idx]);
-            if (sub == 0 || (oldSub != 0 && oldSub < sub))
+            if (sub == 0) // exact match
                 break;
+            if (oldSub != 0 && oldSub < sub)
+            {
+                idx--;
+                break;
+            }
             oldSub = sub;
             idx++;
         } while (idx < this.shutterSpeeds.length);
 
-        return shutterSpeedsStr[idx - 1];
+        return shutterSpeedsStr[idx];
     }
 
     private double log2(double a)
