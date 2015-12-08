@@ -75,7 +75,7 @@ public class ZSActivity extends AppCompatActivity {
 
         do {
             sub = Math.abs(speed - this.shutterSpeeds[idx]);
-            if (sub == 0) // exact match
+            if (sub == 0) // exact matchQ
                 break;
             if (oldSub != 0 && oldSub < sub)
             {
@@ -114,7 +114,8 @@ public class ZSActivity extends AppCompatActivity {
 
         speed = (this.selectedAperture * this.selectedAperture) / Math.pow(2, zonedEV + log2(this.selectedISO / 100.0));
 
-        if (speed < 1./2000) {
+        // I have a Mamiya 645 1000S. :-)
+        if (speed < 1./1200) {
             this.shutterSpeedView.setText("OVER");
             return;
         }
