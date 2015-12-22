@@ -43,14 +43,17 @@
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="ASA"
-                    android:id="@+id/isoLabel" />
+                    android:id="@+id/isoLabel"
+                    android:gravity="center_horizontal" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="400"
-                    android:id="@+id/isoTextView" />
+                    android:id="@+id/isoTextView"
+                    android:gravity="center_horizontal"
+                    android:layout_gravity="center_horizontal" />
             </LinearLayout>
 
             <LinearLayout
@@ -158,11 +161,12 @@
                     android:layout_width="40dp"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="EV"
+                    android:text="LV"
                     android:id="@+id/evTextLabel"
                     android:layout_weight="0"
                     android:layout_gravity="center"
-                    android:elegantTextHeight="false" />
+                    android:elegantTextHeight="false"
+                    android:gravity="center_horizontal" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -242,7 +246,7 @@
                     android:textAppearance="?android:attr/textAppearanceSmall"
                     android:text="Zone"
                     android:id="@+id/zoneTextLabel"
-                    android:layout_gravity="center"
+                    android:layout_gravity="center_horizontal"
                     android:layout_weight="0"
                     android:gravity="top" />
 

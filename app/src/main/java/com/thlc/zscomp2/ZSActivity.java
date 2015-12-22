@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 public class ZSActivity extends AppCompatActivity {
 
-    private TextView evTextView;
-    private SeekBar evSeekBar;
+    private TextView lvTextView;
+    private SeekBar lvSeekBar;
     private TextView zoneTextView;
     private TextView shutterSpeedView;
     private TextView isoTextView;
@@ -24,7 +24,7 @@ public class ZSActivity extends AppCompatActivity {
     private String[] isoValues;
 
     private float selectedAperture;
-    private float selectedEV;
+    private float selectedLV;
     private float selectedISO;
     private float zoneOffset;
 
@@ -36,8 +36,8 @@ public class ZSActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zs);
 
-        this.evTextView = (TextView)findViewById(R.id.evViewer);
-        this.evSeekBar = (SeekBar)findViewById(R.id.evSeekBar);
+        this.lvTextView = (TextView)findViewById(R.id.evViewer);
+        this.lvSeekBar = (SeekBar)findViewById(R.id.evSeekBar);
         this.zoneTextView = (TextView)findViewById(R.id.zoneViewer);
         this.zoneSeekBar = (SeekBar)findViewById(R.id.zoneSeekBar);
         this.isoSeekBar = (SeekBar)findViewById(R.id.isoSeekBar);
@@ -62,7 +62,7 @@ public class ZSActivity extends AppCompatActivity {
         // FIXME: put that in proper preferences
         this.selectedISO = 400.0f;
         this.selectedAperture = Float.valueOf(apertures[0]);
-        this.selectedEV = 15.0f;
+        this.selectedLV = 15.0f;
 
         setupListeners();
         updateShutterSpeed();
@@ -110,7 +110,7 @@ public class ZSActivity extends AppCompatActivity {
         double zonedEV;
 
 
-        zonedEV = (double)this.selectedEV + (double)this.zoneOffset;
+        zonedEV = (double)this.selectedLV + (double)this.zoneOffset;
 
         speed = (this.selectedAperture * this.selectedAperture) / Math.pow(2, zonedEV + log2(this.selectedISO / 100.0));
 
@@ -148,11 +148,11 @@ public class ZSActivity extends AppCompatActivity {
             }
         });
 
-        evSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        lvSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                evTextView.setText(Integer.toString(i));
-                selectedEV = new Float(i);
+                lvTextView.setText(Integer.toString(i));
+                selectedLV = new Float(i);
 
                 updateShutterSpeed();
             }
